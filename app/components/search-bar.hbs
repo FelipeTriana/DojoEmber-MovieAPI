@@ -1,0 +1,29 @@
+        <p>INGRESE TITULO DE SU PELICULA FAVORITA</p>
+    <Input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" @value={{this.title}}/>
+    <button class="btn btn-outline-success my-2 my-sm-0"  {{on "click" this.model}}>Search</button>
+    <button class="btn btn-outline-success my-2 my-sm-0" {{on "click" this.clear}}>Clear</button>
+
+
+ {{#if this.mostrar}}
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src={{this.img}} alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{this.name}}</h5>
+    <p class="card-text">{{this.plot}}</p>
+  </div>
+  <ul class="list-group list-group-flush">
+      <li>
+          {{#each this.ratings as |item|}}
+          <article>{{item.Source}}:{{item.Value}}</article>
+          {{/each}}
+      </li>
+    <li class="list-group-item">{{this.genre}}</li>
+    <li class="list-group-item">{{this.year}}</li>
+    <li class="list-group-item">{{this.runtime}}</li>
+  </ul>
+  <div class="card-body">
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+  </div>
+</div>
+ {{/if}}
